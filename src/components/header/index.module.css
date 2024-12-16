@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.z1 {
+  flex: 0 0 10%;
+}
+
+.title {
+  flex: 0 0 80%;
+  text-align: center;
+}
+
+.drawer_button {
+  flex: 0 0 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
