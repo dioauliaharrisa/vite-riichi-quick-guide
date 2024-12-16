@@ -1,0 +1,57 @@
+.tile,
+.h_tile {
+  border-radius: 5px;
+  background-color: white;
+
+  height: 100%; /* Ensure the parent container has a defined width */
+  max-width: 1.8rem;
+  /* aspect-ratio: 38 / 60; */
+
+  display: flex;
+  padding: 8px 5px;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  z-index: 1;
+}
+
+.h_tile {
+  transform: rotate(90deg) translateX(5px) translateY(6px); /* Rotate the tile */
+  transform-origin: center; /* Rotate around the center point */
+}
+
+.shadow,
+.h_shadow {
+  border-radius: 5px;
+  background-color: gray;
+
+  position: absolute;
+  top: -3px;
+  left: 0;
+  right: 0;
+  bottom: 5px;
+  z-index: 1;
+}
+
+.h_shadow {
+  transform: rotate(90deg) translateX(7px) translateY(6px); /* Rotate the tile */
+  transform-origin: center; /* Rotate around the center point */
+}
+
+.black {
+  border-radius: 5px;
+  background-color: black;
+
+  position: absolute;
+  top: -5px;
+  left: 0;
+  right: 0;
+  bottom: 5px;
+  z-index: 1;
+}
+
+.wrapper {
+  position: relative;
+  margin: 2px 0;
+}
