@@ -3,8 +3,9 @@ import React from "react";
 import { Header } from "../header";
 import { Footer } from "../footer";
 import styles from "./index.module.css"; // Create styles for the layout if needed
-import { Drawer } from "@mantine/core";
+import { Drawer, Text } from "@mantine/core";
 import { usePageCounter } from "../../zustand";
+import { NavLink } from "react-router";
 // import Link from "next/link";
 
 interface LayoutProps {
@@ -26,9 +27,11 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         position="right"
       >
         <div className={styles.table_of_contents}>
-          {/* <Link href="/set">Complete Hand</Link>
-          <Link href="/pinfu">Pinfu</Link>
-          <Link href="/types-of-iishanten">Types of Iishanten</Link> */}
+          <NavLink to="/complete-hand" end>
+            <Text>Complete Hand</Text>
+          </NavLink>
+          <Text>Pinfu</Text>
+          <Text>Types of Iishanten</Text>
         </div>
       </Drawer>
       <div className={styles.page}>
