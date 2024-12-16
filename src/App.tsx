@@ -4,7 +4,7 @@ import { MantineProvider } from "@mantine/core";
 function App() {
   return (
     <MantineProvider>
-      <>Mantine</>
+      <>Mantines</>
     </MantineProvider>
   );
 }
