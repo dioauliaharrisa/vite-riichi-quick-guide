@@ -12,12 +12,11 @@ export const Footer = () => {
     (state) => state.increasePageCounter
   );
   const location = useLocation();
-  console.log("🦆 ~ Footer ~ location:", location);
   const _pathname: keyof typeof MapPageCounterExplanation =
     location.pathname.split("/")[1];
 
   return (
-    <>
+    <div className={styles.wrapper}>
       <Box className={styles.box} mx="auto" maw={400} c="blue.6" bg="#fff">
         {MapPageCounterExplanation[_pathname]?.[pageCounter]}
       </Box>
@@ -30,6 +29,14 @@ export const Footer = () => {
       >
         Next
       </Button>
-    </>
+      <Button
+        variant="gradient"
+        gradient={{ from: "blue", to: "cyan", deg: 90 }}
+        mx="auto"
+        onClick={increasePageCounter}
+      >
+        Next Chapter
+      </Button>
+    </div>
   );
 };

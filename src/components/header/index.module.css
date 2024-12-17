@@ -8,9 +8,12 @@
   flex: 0 0 10%;
 }
 
-.title {
+.middle_part {
   flex: 0 0 80%;
   text-align: center;
+}
+.title {
+  text-transform: capitalize;
 }
 
 .drawer_button {

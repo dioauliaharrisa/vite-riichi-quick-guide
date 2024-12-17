@@ -5,6 +5,7 @@ import { MantineProvider } from "@mantine/core";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import CompleteHand from "./pages/complete-hand/page.tsx";
 import Pinfu from "./pages/pinfu/page.tsx";
+import Kabe from "./pages/kabe/page.tsx";
 import { Layout } from "./components/custom-layout/index.tsx";
 import "@mantine/core/styles.css";
 
@@ -21,6 +22,11 @@ const router = createBrowserRouter([
       {
         path: "/pinfu",
         element: <Pinfu />,
+        children: [],
+      },
+      {
+        path: "/kabe",
+        element: <Kabe />,
         children: [],
       },
     ],

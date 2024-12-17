@@ -1,0 +1,14 @@
+.tile {
+  border-radius: 5px;
+  background-color: white;
+
+  max-width: 1.8rem;
+
+  display: flex;
+  padding: 5px 3px;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  z-index: 1;
+}
