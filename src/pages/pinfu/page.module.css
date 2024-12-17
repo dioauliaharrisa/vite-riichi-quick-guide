@@ -1,0 +1,20 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.wrapper_lines {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.line {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}

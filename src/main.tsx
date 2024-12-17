@@ -4,7 +4,9 @@ import "./index.css";
 import { MantineProvider } from "@mantine/core";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import CompleteHand from "./pages/complete-hand/page.tsx";
+import Pinfu from "./pages/pinfu/page.tsx";
 import { Layout } from "./components/custom-layout/index.tsx";
+import "@mantine/core/styles.css";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +16,11 @@ const router = createBrowserRouter([
       {
         path: "/complete-hand",
         element: <CompleteHand />,
+        children: [],
+      },
+      {
+        path: "/pinfu",
+        element: <Pinfu />,
         children: [],
       },
     ],
