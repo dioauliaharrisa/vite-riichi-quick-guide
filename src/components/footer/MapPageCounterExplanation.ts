@@ -10,7 +10,7 @@ export const MapPageCounterExplanation: PageCounterExplanation = {
   ],
   pinfu: [
     "Pinfu is a common yaku, but the requirement for it is a bit complicated. It worths 1 hand and only has base 20 fu",
-    "First, pinfu itself means 'No Fu' so there are no triplets nor toitsu that generates fu. The toitsu sha from this example has no fu if we are not in sha seat",
-    "Your hand also needs to be in menzen state.",
+    "First, pinfu itself means 'No Fu' so there are no triplets nor yakuhai ankou or yakuhai toitsu that generates fu. Your hand also needs to be in menzen state, lastly the wait should be ryanmen.",
+    "The wait of pinfu has to be either ryanmen or sanmenchan, be careful not to confuse ryanmen and nobetan.",
   ],
 };

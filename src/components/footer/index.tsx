@@ -4,6 +4,7 @@ import { usePageCounter } from "../../zustand";
 import { Box, Button } from "@mantine/core";
 import { MapPageCounterExplanation } from "./MapPageCounterExplanation";
 import { useLocation } from "react-router";
+import styles from "./index.module.css";
 
 export const Footer = () => {
   const pageCounter = usePageCounter((state) => state.pageCounter);
@@ -17,7 +18,7 @@ export const Footer = () => {
 
   return (
     <>
-      <Box mx="auto" maw={400} c="blue.6" bg="#fff">
+      <Box className={styles.box} mx="auto" maw={400} c="blue.6" bg="#fff">
         {MapPageCounterExplanation[_pathname]?.[pageCounter]}
       </Box>
 
