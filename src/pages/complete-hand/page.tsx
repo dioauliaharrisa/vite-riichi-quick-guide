@@ -1,6 +1,5 @@
 "use client";
 
-import { Layout } from "../../components/custom-layout";
 import { createHand } from "../../helpers/createHands";
 import { usePageCounter } from "../../zustand";
 import styles from "./page.module.css";
@@ -9,7 +8,7 @@ export default function Page() {
   const pageCounter = usePageCounter((state) => state.pageCounter);
 
   return (
-    <Layout>
+    <div className={styles.page}>
       {pageCounter > 0 && (
         <div className={styles.first_set}>{createHand(["S2", "S3", "S4"])}</div>
       )}
@@ -50,6 +49,6 @@ export default function Page() {
           "P3",
         ])}
       </div>
-    </Layout>
+    </div>
   );
 }

@@ -1,10 +1,9 @@
 // import "./App.css";
 import "@mantine/core/styles.css";
-import { Layout } from "./components/custom-layout";
 import { createHand } from "./helpers/createHands";
 function App() {
   return (
-    <Layout>
+    <>
       {createHand([
         "Z5",
         "Z5",
@@ -140,7 +139,7 @@ function App() {
         "P2",
         "P3",
       ])}
-    </Layout>
+    </>
   );
 }
 

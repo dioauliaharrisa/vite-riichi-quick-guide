@@ -3,9 +3,7 @@
   border-radius: 5px;
   background-color: white;
 
-  height: 100%; /* Ensure the parent container has a defined width */
   max-width: 1.8rem;
-  /* aspect-ratio: 38 / 60; */
 
   display: flex;
   padding: 8px 5px;
@@ -17,8 +15,8 @@
 }
 
 .h_tile {
-  transform: rotate(90deg) translateX(5px) translateY(6px); /* Rotate the tile */
-  transform-origin: center; /* Rotate around the center point */
+  transform: rotate(90deg) translateX(5px) translateY(6px);
+  transform-origin: center;
 }
 
 .shadow,
@@ -54,4 +52,6 @@
 .wrapper {
   position: relative;
   margin: 2px 0;
+  width: 1.8rem;
+  height: 1rem;
 }

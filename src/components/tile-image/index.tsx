@@ -9,7 +9,6 @@ export const TileImage = ({ name }: { name: string }) => {
       <Wrapper3dTiles orientation={"horizontal"}>
         <Image
           src={`/tiles/${name.substring(0, 2)}.png`}
-          alt="Next.js logo"
           // objectFit="contain"
           width={60}
           height={38}
@@ -21,10 +20,9 @@ export const TileImage = ({ name }: { name: string }) => {
     <Wrapper3dTiles orientation={"vertical"}>
       <Image
         src={`/tiles/${name}.png`}
-        alt="Next.js logo"
-        // objectFit="contain"
-        width={38}
-        height={60}
+        height={"100%"}
+        width={"100%"}
+        fit="contain"
       />
     </Wrapper3dTiles>
   );
