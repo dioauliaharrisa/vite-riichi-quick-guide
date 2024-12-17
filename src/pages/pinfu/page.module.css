@@ -11,7 +11,7 @@
 .wrapper_lines {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2rem; 
 }
 
 .line {
