@@ -4,6 +4,8 @@
   align-items: center;
   justify-content: center;
   height: 100%;
+
+  padding: 5rem 0;
 }
 
 .wrapper_lines {
@@ -14,7 +16,7 @@
 
 .line {
   display: flex;
-  gap: 1rem;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
 }
