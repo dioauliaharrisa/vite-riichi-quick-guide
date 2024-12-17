@@ -2,8 +2,6 @@ import { Image } from "@mantine/core";
 import styles from "./index.module.css";
 
 export const ImageTilePond = ({ name }: { name: string }) => {
-  console.log("🦆 ~ TileImage ~ name:", name);
-
   // if (name.includes("E")) {
   //   return (
   //     <Wrapper3dTiles orientation={"horizontal"}>

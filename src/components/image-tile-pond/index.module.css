@@ -2,12 +2,12 @@
   border-radius: 5px;
   background-color: white;
 
-  max-width: 1.8rem;
+  max-width: 16%;
 
-  display: flex;
-  padding: 5px 3px;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-auto-rows: auto;
+  padding: 3px 1px;
+
 
   position: relative;
   z-index: 1;
