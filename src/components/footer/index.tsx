@@ -7,10 +7,9 @@ import { useLocation } from "react-router";
 import styles from "./index.module.css";
 
 export const Footer = () => {
-  const pageCounter = usePageCounter((state) => state.pageCounter);
-  const increasePageCounter = usePageCounter(
-    (state) => state.increasePageCounter
-  );
+  const { pageCounter, increasePageCounter, decreasePageCounter } =
+    usePageCounter((state) => state);
+
   const location = useLocation();
   const _pathname: keyof typeof MapPageCounterExplanation =
     location.pathname.split("/")[1];
@@ -20,7 +19,14 @@ export const Footer = () => {
       <Box className={styles.box} mx="auto" maw={400} c="blue.6" bg="#fff">
         {MapPageCounterExplanation[_pathname]?.[pageCounter]}
       </Box>
-
+      <Button
+        variant="gradient"
+        gradient={{ from: "blue", to: "cyan", deg: 90 }}
+        mx="auto"
+        onClick={decreasePageCounter}
+      >
+        Previous
+      </Button>
       <Button
         variant="gradient"
         gradient={{ from: "blue", to: "cyan", deg: 90 }}

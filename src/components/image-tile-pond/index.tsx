@@ -15,7 +15,6 @@ export const ImageTilePond = ({ name }: { name: string }) => {
   //   );
   // }
   return (
-    // <Wrapper3dTiles orientation={"vertical"}>
     <div className={styles.tile}>
       <Image
         src={`/tiles/${name}.png`}
@@ -24,6 +23,5 @@ export const ImageTilePond = ({ name }: { name: string }) => {
         fit="contain"
       />
     </div>
-    // </Wrapper3dTiles>
   );
 };
