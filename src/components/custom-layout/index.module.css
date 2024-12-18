@@ -3,24 +3,24 @@
   --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
   --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
 
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
   display: flex;
   flex-direction: column;
 
   height: 100vh;
+  font-family: "Oswald", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
   /* padding: 0 10px; */
-  font-family: var(--font-geist-sans);
 
-  background-color: #383838;
+  background-color: #1c3f39;
 
   /* overflow: hidden; */
 }
 
 .header {
   flex: 0 0 5%; /* Fixed to 10% of screen height */
-  background-color: #4a4a4a; /* Example background color */
+  background-color: #e0eae9; /* Example background color */
 }
 
 .content {
@@ -31,7 +31,9 @@
 
 .footer {
   flex: 0 0 20%; /* Fixed to 20% of screen height */
-  background-color: #2a2a2a; /* Example background color */
+  background-color: #e0eae9; /* Example background color */
+
+  border-radius: 1rem 1rem 0 0;
 }
 
 .table_of_contents {

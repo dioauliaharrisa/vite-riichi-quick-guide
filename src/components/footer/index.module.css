@@ -1,7 +1,24 @@
 .wrapper {
-  margin: .5rem;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
 }
 .box {
+  font-size: small;
+  color: #214738;
   padding: 0.5rem;
   border-radius: 0.25rem;
+}
+
+.wrapper_buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper_buttons > button {
+  background-color: #214738;
+  width: 30%;
+  font-size: x-small;
+  border-radius: 1rem;
 }

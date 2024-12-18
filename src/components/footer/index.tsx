@@ -16,33 +16,20 @@ export const Footer = () => {
 
   return (
     <div className={styles.wrapper}>
-      <Box className={styles.box} mx="auto" maw={400} c="blue.6" bg="#fff">
+      <Box className={styles.box} mx="auto">
         {MapPageCounterExplanation[_pathname]?.[pageCounter]}
       </Box>
-      <Button
-        variant="gradient"
-        gradient={{ from: "blue", to: "cyan", deg: 90 }}
-        mx="auto"
-        onClick={decreasePageCounter}
-      >
-        Previous
-      </Button>
-      <Button
-        variant="gradient"
-        gradient={{ from: "blue", to: "cyan", deg: 90 }}
-        mx="auto"
-        onClick={increasePageCounter}
-      >
-        Next
-      </Button>
-      <Button
-        variant="gradient"
-        gradient={{ from: "blue", to: "cyan", deg: 90 }}
-        mx="auto"
-        onClick={increasePageCounter}
-      >
-        Next Chapter
-      </Button>
+      <div className={styles.wrapper_buttons}>
+        <Button mx="auto" onClick={decreasePageCounter}>
+          Previous
+        </Button>
+        <Button mx="auto" onClick={increasePageCounter}>
+          Next
+        </Button>
+        <Button mx="auto" onClick={increasePageCounter}>
+          Next Chapter
+        </Button>
+      </div>
     </div>
   );
 };
