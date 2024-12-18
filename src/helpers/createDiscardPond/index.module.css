@@ -12,6 +12,7 @@
 }
 
 .discard_pond > div {
+  visibility: hidden;
   aspect-ratio: 1 / 1;
 
   display: grid;
@@ -24,9 +25,9 @@
   grid-row-end: 2;
   grid-column-start: 2;
   grid-column-end: 3;
-  background-color: green;
+  /* background-color: green; */
   transform: rotate(180deg);
-  animation: slideInFromTop 1s 1s;
+  animation: slideInFromTop 1s ease-out forwards;
 }
 
 .nan_discards {
@@ -34,9 +35,9 @@
   grid-row-end: 3;
   grid-column-start: 1;
   grid-column-end: 2;
-  background-color: red;
+  /* background-color: red; */
   transform: rotate(90deg);
-  animation: slideInFromLeft 1s 1s;
+  animation: slideInFromLeft 1s ease-out forwards;
 }
 
 .sha_discards {
@@ -44,8 +45,8 @@
   grid-row-end: 4;
   grid-column-start: 2;
   grid-column-end: 3;
-  background-color: yellow;
-  animation: slideInFromBottom 1s 1s;
+  /* background-color: yellow; */
+  animation: slideInFromBottom 1s ease-out forwards;
 }
 
 .pei_discards {
@@ -53,9 +54,9 @@
   grid-row-end: 3;
   grid-column-start: 3;
   grid-column-end: 4;
-  background-color: blue;
+  /* background-color: blue; */
   transform: rotate(270deg);
-  animation: slideInFromRight 1s 1s;
+  animation: slideInFromRight 1s ease-out forwards;
 }
 
 @keyframes slideInFromTop {
@@ -68,6 +69,7 @@
     transform: translateY(0);
     opacity: 1;
     transform: rotate(180deg);
+    visibility: visible;
   }
 }
 
@@ -81,6 +83,7 @@
     transform: translateY(0);
     opacity: 1;
     transform: rotate(180deg);
+    visibility: visible;
   }
 }
 
@@ -92,6 +95,7 @@
   100% {
     transform: translateY(0) rotate(-90deg);
     opacity: 1;
+    visibility: visible;
   }
 }
 
@@ -103,5 +107,6 @@
   100% {
     transform: translateY(0);
     opacity: 1;
+    visibility: visible;
   }
 }
