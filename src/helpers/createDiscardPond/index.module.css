@@ -86,14 +86,12 @@
 
 @keyframes slideInFromRight {
   0% {
-    transform: translateY(-100%);
+    transform: translateX(100%) rotate(-90deg);
     opacity: 0;
-    transform: rotate(180deg);
   }
   100% {
-    transform: translateY(0);
+    transform: translateY(0) rotate(-90deg);
     opacity: 1;
-    transform: rotate(180deg);
   }
 }
 
