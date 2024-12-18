@@ -36,6 +36,7 @@
   grid-column-end: 2;
   background-color: red;
   transform: rotate(90deg);
+  animation: slideInFromLeft 1s 1s;
 }
 
 .sha_discards {
@@ -44,6 +45,7 @@
   grid-column-start: 2;
   grid-column-end: 3;
   background-color: yellow;
+  animation: slideInFromBottom 1s 1s;
 }
 
 .pei_discards {
@@ -53,6 +55,7 @@
   grid-column-end: 4;
   background-color: blue;
   transform: rotate(270deg);
+  animation: slideInFromRight 1s 1s;
 }
 
 @keyframes slideInFromTop {
@@ -65,5 +68,42 @@
     transform: translateY(0);
     opacity: 1;
     transform: rotate(180deg);
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
