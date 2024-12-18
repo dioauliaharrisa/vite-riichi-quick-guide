@@ -14,8 +14,8 @@ export const MapPageCounterExplanation: PageCounterExplanation = {
     "The wait of pinfu has to be either ryanmen or sanmenchan, be careful not to confuse ryanmen and nobetan.",
   ],
   kabe: [
-    "Kabe in english is 'Wall'. This term is referring to the visible numbered tiles that have been discarded",
+    "Kabe in english is 'Wall'. This term is referring to the 4 visible numbered tiles.",
     "Kabe is considered when choosing to defend because when 4 tiles of the same tile have already been discarded, exposing that no ryanmen that using that tile maybe be possible",
-    "Not also in discard pond, you can pinpoint kabe while looking at your hand. In this case you can see that there is 7m kabe. 7m kabe information is so useful because you are the only one who knows this."
+    "Note also in discard pond, you can pinpoint kabe while looking at your hand. In this case you can see that there is 8s kabe. 8s kabe information is so useful because you are the only one who knows this."
   ]
 };
