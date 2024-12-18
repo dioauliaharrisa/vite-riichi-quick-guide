@@ -29,6 +29,16 @@ const router = createBrowserRouter([
         element: <Kabe />,
         children: [],
       },
+      {
+        path: "/5-blocks-theory",
+        element: <Kabe />,
+        children: [],
+      },
+      {
+        path: "/6-blocks-theory",
+        element: <Kabe />,
+        children: [],
+      },
     ],
   },
 ]);
