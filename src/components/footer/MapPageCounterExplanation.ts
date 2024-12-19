@@ -9,7 +9,7 @@ export const MapPageCounterExplanation: PageCounterExplanation = {
     "The remaining set that has not been completed yet is the 23p waiting on 1p and 4p, if you draw either 1p or 4p you win the round",
   ],
   pinfu: [
-    "Pinfu is a common yaku, but the requirement for it is a bit complicated. It worths 1 hand and only has base 20 fu",
+    "Pinfu is a common yaku, but the requirement for it is a bit complicated. It worths 1 han and only has base 20 fu",
     "First, pinfu itself means 'No Fu' so there are no triplets nor yakuhai ankou or yakuhai toitsu that generates fu. Your hand also needs to be in menzen state, lastly the wait should be ryanmen.",
     "The wait of pinfu has to be either ryanmen or sanmenchan, be careful not to confuse ryanmen and nobetan.",
   ],

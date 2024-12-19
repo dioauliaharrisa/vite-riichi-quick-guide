@@ -1,0 +1,15 @@
+.wrapper {
+  position: absolute;
+  top: 3.5rem;
+  right: 1rem;
+
+  background-color: bisque;
+  border-radius: 0.21rem;
+  padding: 0.3rem;
+}
+
+.text {
+}
+
+.translation {
+}

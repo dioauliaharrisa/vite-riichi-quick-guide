@@ -21,7 +21,7 @@ const router = createBrowserRouter([
         children: [],
       },
       {
-        path: "/terminology",
+        path: "/terminology-of-hand-components",
         element: <TerminologyOfHandComponents />,
         children: [],
       },
