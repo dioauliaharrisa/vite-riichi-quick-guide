@@ -2,6 +2,7 @@
 // import { createHand } from "../../helpers/createHands";
 import { usePageCounter } from "../../zustand";
 import styles from "./page.module.css";
+import { Slide01 } from "./slides/01";
 
 export default function Page() {
   const pageCounter = usePageCounter((state) => state.pageCounter);
@@ -26,12 +27,8 @@ export default function Page() {
 
   return (
     <div className={styles.page}>
-      {pageCounter < 4 && (
-        <>
-          {/* <div className={styles.discard_pond}>{discardPond}</div>
-          {firstHand} */}
-        </>
-      )}
+      {pageCounter === 0 && <Slide01 />}
+      {pageCounter === 1 && <Slide02 />}
       {/* {pageCounter === 1 && (
         <>
           <div className={styles.discard_pond}>

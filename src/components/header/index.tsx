@@ -31,6 +31,13 @@ export const Header = () => {
           <NavLink to="/complete-hand" end onClick={handleClickDrawer}>
             <Text>Complete Hand</Text>
           </NavLink>
+          <NavLink
+            to="/terminology-of-hand-components"
+            end
+            onClick={handleClickDrawer}
+          >
+            <Text>Terminology of Hand Components</Text>
+          </NavLink>
           <NavLink to="/pinfu" onClick={handleClickDrawer}>
             <Text>Pinfu</Text>
           </NavLink>
