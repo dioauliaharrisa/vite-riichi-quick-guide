@@ -3,6 +3,7 @@
 import { usePageCounter } from "../../zustand";
 import styles from "./page.module.css";
 import { Slide01 } from "./slides/01";
+import { Slide02 } from "./slides/02";
 
 export default function Page() {
   const pageCounter = usePageCounter((state) => state.pageCounter);
