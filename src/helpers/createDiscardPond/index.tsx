@@ -4,7 +4,18 @@ import styles from "./index.module.css";
 export const createDiscardPond = (text: string[][]) => {
   const mapped = text.map((each: string[]) => {
     const eachMapped = each.map((eachOfEach: string) => {
-      const Component = <ImageTilePond name={eachOfEach} key={Math.random()} />;
+      if (eachOfEach[0] === "r") {
+        return (
+          <ImageTilePond
+            name={eachOfEach}
+            key={Math.random()}
+            isMarked={true}
+          />
+        );
+      }
+      const Component = (
+        <ImageTilePond name={eachOfEach} key={Math.random()} isMarked={false} />
+      );
       return Component || null;
     });
     return eachMapped;

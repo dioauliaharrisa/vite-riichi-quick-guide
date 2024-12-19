@@ -1,23 +1,18 @@
 import { Image } from "@mantine/core";
 import styles from "./index.module.css";
 
-export const ImageTilePond = ({ name }: { name: string }) => {
-  // if (name.includes("E")) {
-  //   return (
-  //     <Wrapper3dTiles orientation={"horizontal"}>
-  //       <Image
-  //         src={`/tiles/${name.substring(0, 2)}.png`}
-  //         // objectFit="contain"
-  //         width={60}
-  //         height={38}
-  //       />
-  //     </Wrapper3dTiles>
-  //   );
-  // }
+export const ImageTilePond = ({
+  name,
+  isMarked = false,
+}: {
+  name: string;
+  isMarked: boolean;
+}) => {
+  console.log("🦆 ~ name,isMarked:", name, isMarked);
   return (
-    <div className={styles.tile}>
+    <div className={isMarked ? styles.marked_tile : styles.tile}>
       <Image
-        src={`/tiles/${name}.png`}
+        src={`/tiles/${isMarked ? name.substring(1) : name}.png`}
         height={"100%"}
         width={"100%"}
         fit="contain"

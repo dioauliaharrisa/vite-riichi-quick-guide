@@ -7,7 +7,7 @@ import styles from "./page.module.css";
 export default function Page() {
   const pageCounter = usePageCounter((state) => state.pageCounter);
 
-  const firstDiscardPond = useMemo(() => {
+  const discardPond = useMemo(() => {
     return createDiscardPond([
       [
         "Z3",
@@ -21,24 +21,24 @@ export default function Page() {
         "Z4",
         "Z1",
         "S9",
-        "S8",
+        pageCounter === 3 ? "rS8" : "S8",
         "S7",
         "S7",
       ],
       [
         "Z4",
         "M9",
-        "S8",
+        pageCounter === 3 ? "rS8" : "S8",
         "Z4",
         "Z6",
         "P9",
         "Z3",
         "S4",
-        "S8",
+        pageCounter === 3 ? "rS8" : "S8",
         "S6",
         "P2",
         "S7",
-        "S8",
+        pageCounter === 3 ? "rS8" : "S8",
       ],
       [
         "Z3",
@@ -73,7 +73,7 @@ export default function Page() {
         "Z5",
       ],
     ]);
-  }, []);
+  }, [pageCounter]);
 
   const firstHand = useMemo(() => {
     return createHand([
@@ -89,15 +89,15 @@ export default function Page() {
       "Z7",
       "M2",
       "M3",
-      "M4",
+      "S9",
     ]);
   }, []);
 
   return (
     <div className={styles.page}>
-      {pageCounter < 2 && (
+      {pageCounter < 4 && (
         <>
-          <div className={styles.discard_pond}>{firstDiscardPond}</div>
+          <div className={styles.discard_pond}>{discardPond}</div>
           {firstHand}
         </>
       )}
