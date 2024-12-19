@@ -2,8 +2,6 @@ import { Image } from "@mantine/core";
 import { Wrapper3dTiles } from "../3d-tiles-wrapper";
 
 export const TileImage = ({ name }: { name: string }) => {
-  console.log("🦆 ~ TileImage ~ name:", name);
-
   if (name.includes("E")) {
     return (
       <Wrapper3dTiles orientation={"horizontal"}>

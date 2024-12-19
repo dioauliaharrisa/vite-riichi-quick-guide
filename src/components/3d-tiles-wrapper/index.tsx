@@ -10,7 +10,6 @@ export const Wrapper3dTiles: React.FC<Wrapper3dTilesProps> = ({
   children,
   orientation = "vertical",
 }) => {
-  console.log("🦆 ~ orientation:", orientation);
   if (orientation === "horizontal") {
     return (
       <div className={styles.wrapper}>
