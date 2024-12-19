@@ -1,12 +1,28 @@
 .slide {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 100%;
+  margin: auto;
+  /* TESTING PURPOSE */
+  background-color: brown;
 }
+
 .wrapper_lines {
   display: flex;
+  justify-content: space-around; /* Space out the lines evenly */
+  align-items: center;
+  width: 100%; /* Full width of the parent container */
 }
 
 .line {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem; /* Fixed size for better control */
+  height: 5rem;
+  background-color: lightblue; /* For visibility */
 }
 
 .line_1 {
@@ -25,43 +41,48 @@
   animation: line_5 2s ease-in-out forwards;
 }
 
+/* Animations for larger translations */
 @keyframes line_1 {
   0% {
-    transform: translateY(0);
+    transform: translate(0, 0);
   }
   100% {
-    transform: translateY(-9rem); /* bottom */
+    transform: translate(0, -20vh);
   }
 }
+
 @keyframes line_2 {
   0% {
     transform: translate(0, 0);
   }
   100% {
-    transform: translate(-5rem, -5rem); /* bottom */
+    transform: translate(-21.2vw, -10vh);
   }
 }
+
 @keyframes line_3 {
   0% {
     transform: translate(0, 0);
   }
   100% {
-    transform: translate(-10rem, -1rem); /* bottom */
+    transform: translate(-42.2vw, 0); /* Move diagonally to top-left */
   }
 }
+
 @keyframes line_4 {
   0% {
     transform: translate(0, 0);
   }
   100% {
-    transform: translate(-15rem, 3rem); /* bottom */
+    transform: translate(-63.6vw, 10vh); /* Move diagonally to bottom-left */
   }
 }
+
 @keyframes line_5 {
   0% {
     transform: translate(0, 0);
   }
   100% {
-    transform: translate(-18.3rem, 7rem); /* bottom */
+    transform: translate(-77.2vw, 20vh); /* Move diagonally to bottom-right */
   }
 }
