@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { createHand } from "../../../../helpers/createHands";
 
 export const Slide02 = () => {
-  const lineRefs = useRef([]);
-  const [translations, setTranslations] = useState([]);
+  const lineRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [translations, setTranslations] = useState<number[]>([]);
 
   useEffect(() => {
     const calculateTranslations = () => {
