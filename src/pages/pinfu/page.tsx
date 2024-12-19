@@ -24,7 +24,7 @@ export default function Page() {
             "P9",
             "Z3",
             "Z3",
-            "M2",
+            "M2",  
             "M3",
           ])}
         </div>
