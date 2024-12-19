@@ -16,19 +16,13 @@ export const Footer = () => {
 
   return (
     <div className={styles.wrapper}>
-      <Box className={styles.box} mx="auto">
+      <Box className={styles.box}>
         {MapPageCounterExplanation[_pathname]?.[pageCounter]}
       </Box>
       <div className={styles.wrapper_buttons}>
-        <Button mx="auto" onClick={decreasePageCounter}>
-          Previous
-        </Button>
-        <Button mx="auto" onClick={increasePageCounter}>
-          Next
-        </Button>
-        <Button mx="auto" onClick={increasePageCounter}>
-          Next Chapter
-        </Button>
+        <Button onClick={decreasePageCounter}>Previous</Button>
+        <Button onClick={increasePageCounter}>Next</Button>
+        <Button onClick={increasePageCounter}>Next Chapter</Button>
       </div>
     </div>
   );
