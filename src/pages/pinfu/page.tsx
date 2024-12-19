@@ -11,7 +11,23 @@ export default function Page() {
   return (
     <div className={styles.content}>
       {pageCounter === 0 && (
-        <div className={styles.content}>{createHand(["S2", "S3", "S4"])}</div>
+        <div className={styles.content}>
+          {createHand([
+            "S2",
+            "S3",
+            "S4",
+            "M2",
+            "M3",
+            "M4",
+            "P7",
+            "P8",
+            "P9",
+            "Z3",
+            "Z3",
+            "M2",
+            "M3",
+          ])}
+        </div>
       )}
       {pageCounter === 1 && (
         <div className={styles.wrapper_lines}>
