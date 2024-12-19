@@ -1,3 +1,12 @@
+.page {
+  height: 100%;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+}
+
 .content {
   display: flex;
   align-items: center;
@@ -42,8 +51,4 @@
   top: 50%;
   left: 60%;
   transform: translate(-50%, -50%);
-}
-
-.page {
-  /* height: 100%; */
 }

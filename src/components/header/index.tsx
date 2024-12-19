@@ -8,13 +8,17 @@ import { useLocation } from "react-router";
 import { MapPageCounterExplanation } from "../footer/MapPageCounterExplanation";
 
 export const Header = () => {
-  const toggleDrawer = usePageCounter((state) => state.toggleDrawer);
-  const shouldToggleDrawer = usePageCounter(
-    (state) => state.shouldToggleDrawer
+  const { toggleDrawer, shouldToggleDrawer, resetPageCounter } = usePageCounter(
+    (state) => state
   );
   const location = useLocation();
   const _pathname: keyof typeof MapPageCounterExplanation =
     location.pathname.split("/")[1];
+
+  const handleClickDrawer = (): void => {
+    toggleDrawer();
+    resetPageCounter();
+  };
   return (
     <Box className={styles.header}>
       <Drawer
@@ -24,25 +28,25 @@ export const Header = () => {
         position="right"
       >
         <div className={styles.table_of_contents}>
-          <NavLink to="/complete-hand" end>
+          <NavLink to="/complete-hand" end onClick={handleClickDrawer}>
             <Text>Complete Hand</Text>
           </NavLink>
-          <NavLink to="/pinfu" end>
+          <NavLink to="/pinfu" onClick={handleClickDrawer}>
             <Text>Pinfu</Text>
           </NavLink>
-          <NavLink to="/5-blocks-theory">
+          <NavLink to="/5-blocks-theory" onClick={handleClickDrawer}>
             <Text>5 Blocks Theory</Text>
           </NavLink>
-          <NavLink to="/6-blocks-theory">
+          <NavLink to="/6-blocks-theory" onClick={handleClickDrawer}>
             <Text>6 Blocks Theory</Text>
           </NavLink>
-          <NavLink to="/types-of-iishanten">
+          <NavLink to="/types-of-iishanten" onClick={handleClickDrawer}>
             <Text>Types of Iishanten</Text>
           </NavLink>
-          <NavLink to="/types-of-iishanten">
+          <NavLink to="/types-of-iishanten" onClick={handleClickDrawer}>
             <Text>Defense Technique</Text>
           </NavLink>
-          <NavLink to="/kabe">
+          <NavLink to="/kabe" onClick={handleClickDrawer}>
             <Text>Kabe</Text>
           </NavLink>
         </div>

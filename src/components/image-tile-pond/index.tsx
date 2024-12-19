@@ -8,7 +8,6 @@ export const ImageTilePond = ({
   name: string;
   isMarked: boolean;
 }) => {
-  console.log("🦆 ~ name,isMarked:", name, isMarked);
   return (
     <div className={isMarked ? styles.marked_tile : styles.tile}>
       <Image
