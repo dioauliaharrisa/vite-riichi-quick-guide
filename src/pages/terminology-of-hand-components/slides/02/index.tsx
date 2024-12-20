@@ -12,7 +12,7 @@ export const Slide02 = () => {
         if (line) {
           const rect = line.getBoundingClientRect();
           const currentLeft = rect.left; // Distance from the left edge of the viewport
-          const targetLeft = 5; // Desired alignment in px from the left edge
+          const targetLeft = 0.05 * viewportWidth; // Desired alignment in px from the left edge
 
           // Calculate the translation in percentage (vw) instead of pixels
           const translateX = ((targetLeft - currentLeft) / viewportWidth) * 100;
@@ -43,7 +43,11 @@ export const Slide02 = () => {
       lineRefs.current.forEach((line, index) => {
         if (line && translations[index] !== undefined) {
           const translateX = translations[index];
-          const translateY = -10 * index; // Example dynamic Y offset
+          const translateY = -10 * index + 20; // Example dynamic Y offset
+          console.log(
+            "🦆 ~ lineRefs.current.forEach ~ translateY:",
+            translateY
+          );
 
           line.animate(
             [
