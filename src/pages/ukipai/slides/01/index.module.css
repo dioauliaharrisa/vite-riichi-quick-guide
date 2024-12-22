@@ -17,7 +17,7 @@
 }
 
 .one {
-  /* animation: out 2s ease-in-out infinite; */
+  animation: out 2s ease-in-out infinite;
 }
 
 .two,
@@ -25,7 +25,7 @@
 .four,
 .five,
 .six {
-  /* animation: go_center 2s ease-in-out infinite; */
+  animation: go_center 2s ease-in-out infinite;
 }
 
 @keyframes out {
@@ -42,10 +42,10 @@
 @keyframes go_center {
   0% {
     transform: translate(0, 0);
-    visibility: visible;
+    /* visibility: visible; */
   }
   100% {
-    transform: translate(-100vh, 0);
-    visibility: hidden;
+    transform: translate(-20vh, 0);
+    /* visibility: hidden; */
   }
 }

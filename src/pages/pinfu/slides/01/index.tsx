@@ -21,9 +21,6 @@ export const Slide01 = () => {
           "M3",
         ],
       })}
-      {createHand({
-        hand: ["S2"],
-      })}
     </div>
   );
 };
