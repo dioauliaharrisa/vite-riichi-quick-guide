@@ -87,7 +87,7 @@ export const Slide02 = () => {
         height: "50vh",
         width: "100%",
         margin: "auto",
-        backgroundColor: "brown", // Testing background
+        // backgroundColor: "brown", // Testing background
       }}
     >
       <div

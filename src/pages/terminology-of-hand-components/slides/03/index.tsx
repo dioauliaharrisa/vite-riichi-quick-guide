@@ -67,7 +67,7 @@ export const Slide03 = () => {
         width: "100%",
         margin: "auto",
         position: "relative",
-        backgroundColor: "brown", // Testing background
+        // backgroundColor: "brown", // Testing background
       }}
     >
       <div
