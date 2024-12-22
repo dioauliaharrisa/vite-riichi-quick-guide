@@ -111,10 +111,9 @@ export const Slide02 = () => {
               // backgroundColor: "lightblue", // Testing background
             }}
           >
-            {createHand(line.content)}
+            {createHand({ hand: line.content })}
           </div>
         ))}
-      
       </div>
     </div>
   );

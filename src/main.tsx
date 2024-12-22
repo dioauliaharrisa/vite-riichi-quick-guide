@@ -7,6 +7,7 @@ import CompleteHand from "./pages/complete-hand/page.tsx";
 import Pinfu from "./pages/pinfu/page.tsx";
 import Kabe from "./pages/kabe/page.tsx";
 import TerminologyOfHandComponents from "./pages/terminology-of-hand-components/page.tsx";
+import Ukipai from "./pages/ukipai/page.tsx";
 import { Layout } from "./components/custom-layout/index.tsx";
 import "@mantine/core/styles.css";
 
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
       {
         path: "/kabe",
         element: <Kabe />,
+        children: [],
+      },
+      {
+        path: "/ukipai",
+        element: <Ukipai />,
         children: [],
       },
       {

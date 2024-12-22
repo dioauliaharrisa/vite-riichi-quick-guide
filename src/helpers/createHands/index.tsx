@@ -1,8 +1,8 @@
 import { TileImage } from "../../components/tile-image";
 import styles from "./index.module.css";
 
-export const createHand = (text: string[]) => {
-  const mapped = text.map((each) => {
+export const createHand = ({ hand }: { hand: string[] }) => {
+  const mapped = hand.map((each) => {
     const Component = <TileImage name={each} key={Math.random()} />;
     return Component || null;
   });

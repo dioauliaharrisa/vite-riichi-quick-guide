@@ -41,7 +41,6 @@
   animation: line_5 2s ease-in-out forwards;
 }
 
-/* Animations for larger translations */
 @keyframes line_1 {
   0% {
     transform: translate(0, 0);
