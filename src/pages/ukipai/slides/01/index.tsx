@@ -52,12 +52,6 @@ export const Slide01 = () => {
     tileRefs.current.forEach((element, index) => {
       if (element) {
         const rect = element.getBoundingClientRect();
-        console.log(
-          "🦆 ~ tileRefs.current.forEach ~ rect.x:",
-          rect.x,
-          viewportWidth,
-          rect.width
-        );
         const targetX = -rect.x + rect.width;
 
         tl.current.to(
@@ -71,9 +65,13 @@ export const Slide01 = () => {
         );
       }
     });
-
-    // Add additional animations for more pageCounter states here
     tl.current.addLabel("page2");
+
+    tl.current.set(".M2_acceptance", {
+      display: "inline",
+      position: "absolute",
+    });
+    tl.current.addLabel("page3");
   }, []);
 
   // Play or reverse the animation based on pageCounter
@@ -112,6 +110,10 @@ export const Slide01 = () => {
         {createHandDiv(["Z3"], styles.tile, 3)}
         {createHandDiv(["P5"], styles.tile, 4)}
         {createHandDiv(["M9"], styles.tile, 5)}
+        {createHandDiv(["M1"], styles.M2_acceptance, 6)}
+        {createHandDiv(["M2"], styles.M2_acceptance, 7)}
+        {createHandDiv(["M3"], styles.M2_acceptance, 8)}
+        {createHandDiv(["M4"], styles.M2_acceptance, 9)}
       </div>
     </div>
   );

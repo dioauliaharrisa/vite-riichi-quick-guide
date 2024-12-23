@@ -16,6 +16,14 @@
   background-color: aqua;
 }
 
-.two, .three, .four, .five,.six {
+.two,
+.three,
+.four,
+.five,
+.six {
   /* visibility: hidden; */
+}
+
+.M2_acceptance {
+  display: none;
 }
