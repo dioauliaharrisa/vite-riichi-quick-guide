@@ -23,12 +23,11 @@ export const Slide01 = () => {
 
         const targetX = viewportWidth - rect.x - viewportWidth - rect.width / 2;
 
-        // Animate the elements to their new position
+
         gsap.to(
           element,
-          // { x: 0, y: 0 },
           {
-            x: targetX + (index / 6) * viewportWidth, // Calculate the offset based on the current position
+            x: targetX + (index / 6) * viewportWidth, 
             duration: 1,
           }
         );
