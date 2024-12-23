@@ -1,6 +1,6 @@
 import { createHand } from "../../../../helpers/createHands";
 import styles from "./index.module.css";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
@@ -10,12 +10,20 @@ gsap.registerPlugin(useGSAP, MotionPathPlugin);
 
 export const Slide01 = () => {
   const line = useRef(null);
-  const tileRefs = useRef<HTMLDivElement[]>([]); // A single ref for all tiles
+  const tileRefs = useRef<HTMLDivElement[]>([]);
+
+  const tl = gsap.timeline();
 
   const pageCounter = usePageCounter((state) => state.pageCounter);
 
   const animateSlide01 = () => {
     const viewportWidth = window.innerWidth;
+    tl.add("start");
+    tl.fromTo(
+      tileRefs.current[0],
+      { opacity: 1 },
+      { x: -190, opacity: 0, duration: 1 }
+    );
 
     tileRefs.current.forEach((element, index) => {
       if (element) {
@@ -23,23 +31,17 @@ export const Slide01 = () => {
 
         const targetX = viewportWidth - rect.x - viewportWidth - rect.width / 2;
 
-
-        gsap.to(
+        tl.to(
           element,
           {
-            x: targetX + (index / 6) * viewportWidth, 
+            x: targetX + (index / 6) * viewportWidth,
             duration: 1,
-          }
+          },
+          "<"
         );
       }
     });
-
-    // Specific animation for the first group
-    gsap.fromTo(
-      tileRefs.current[0],
-      { opacity: 1 },
-      { x: -190, opacity: 0, duration: 1 }
-    );
+    tl.seek("start");
   };
 
   useGSAP(
@@ -50,6 +52,10 @@ export const Slide01 = () => {
     },
     { dependencies: [pageCounter], scope: line, revertOnUpdate: true }
   );
+
+  useEffect(() => {
+    if (pageCounter === 4) tl.play("start");
+  }, [pageCounter]);
 
   const createHandDiv = (hand: string[], className: string, index: number) => (
     <div
