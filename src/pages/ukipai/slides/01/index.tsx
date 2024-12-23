@@ -52,12 +52,18 @@ export const Slide01 = () => {
     tileRefs.current.forEach((element, index) => {
       if (element) {
         const rect = element.getBoundingClientRect();
-        const targetX = viewportWidth - rect.x - viewportWidth - rect.width / 2;
+        console.log(
+          "🦆 ~ tileRefs.current.forEach ~ rect.x:",
+          rect.x,
+          viewportWidth,
+          rect.width
+        );
+        const targetX = -rect.x + rect.width;
 
         tl.current.to(
           element,
           {
-            x: targetX + (index / 6) * viewportWidth,
+            x: targetX,
             y: -180 + index * 60,
             duration: 1,
           },
@@ -65,15 +71,6 @@ export const Slide01 = () => {
         );
       }
     });
-    // tl.current.to(
-    //   tileRefs.current[2],
-    //   {
-    //     y: 100,
-    //     x: 0,
-    //     duration: 1,
-    //   },
-    //   "page2"
-    // );
 
     // Add additional animations for more pageCounter states here
     tl.current.addLabel("page2");
