@@ -2,36 +2,41 @@ import { createHand } from "../../../../helpers/createHands";
 import styles from "./index.module.css";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { usePageCounter } from "../../../../zustand";
 
-gsap.registerPlugin(useGSAP, MotionPathPlugin);
+gsap.registerPlugin(MotionPathPlugin);
 
 export const Slide01 = () => {
   const line = useRef(null);
-  const tileRefs = useRef<HTMLDivElement[]>([]);
-
-  const tl = gsap.timeline();
+  const tileRefs = useRef<HTMLDivElement[]>([]); // A single ref for all tiles
 
   const pageCounter = usePageCounter((state) => state.pageCounter);
+  console.log("🦆 ~ Slide01 ~ pageCounter:", pageCounter);
+  const prevPageCounter = useRef(pageCounter); // Track the previous pageCounter value
 
-  const animateSlide01 = () => {
+  const tl = useRef(gsap.timeline({ paused: true }));
+
+  // Initialize animations
+  useEffect(() => {
     const viewportWidth = window.innerWidth;
-    tl.add("start");
-    tl.fromTo(
+
+    // Define the timeline and animation states
+    tl.current.clear();
+
+    // Animation for pageCounter === 1
+    tl.current.addLabel("page0");
+    tl.current.fromTo(
       tileRefs.current[0],
       { opacity: 1 },
       { x: -190, opacity: 0, duration: 1 }
     );
-
     tileRefs.current.forEach((element, index) => {
       if (element) {
         const rect = element.getBoundingClientRect();
-
         const targetX = viewportWidth - rect.x - viewportWidth - rect.width / 2;
 
-        tl.to(
+        tl.current.to(
           element,
           {
             x: targetX + (index / 6) * viewportWidth,
@@ -41,20 +46,48 @@ export const Slide01 = () => {
         );
       }
     });
-    tl.seek("start");
-  };
 
-  useGSAP(
-    () => {
-      if (pageCounter === 1) {
-        animateSlide01();
+    // Animation for pageCounter === 2
+    tl.current.addLabel("page1");
+    tileRefs.current.forEach((element, index) => {
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const targetX = viewportWidth - rect.x - viewportWidth - rect.width / 2;
+
+        tl.current.to(
+          element,
+          {
+            x: targetX + (index / 6) * viewportWidth,
+            y: -180 + index * 60,
+            duration: 1,
+          },
+          "page2"
+        );
       }
-    },
-    { dependencies: [pageCounter], scope: line, revertOnUpdate: true }
-  );
+    });
+    // tl.current.to(
+    //   tileRefs.current[2],
+    //   {
+    //     y: 100,
+    //     x: 0,
+    //     duration: 1,
+    //   },
+    //   "page2"
+    // );
 
+    // Add additional animations for more pageCounter states here
+    tl.current.addLabel("page2");
+  }, []);
+
+  // Play or reverse the animation based on pageCounter
   useEffect(() => {
-    if (pageCounter === 4) tl.play("start");
+    if (pageCounter > prevPageCounter.current) {
+      tl.current.tweenTo(`page${pageCounter}`); // Play forward
+    } else if (pageCounter < prevPageCounter.current) {
+      tl.current.reverse(`page${pageCounter}`); // Reverse to the previous state
+    }
+
+    prevPageCounter.current = pageCounter; // Update the previous counter
   }, [pageCounter]);
 
   const createHandDiv = (hand: string[], className: string, index: number) => (
