@@ -14,7 +14,7 @@ export const Slide01 = () => {
 
   const pageCounter = usePageCounter((state) => state.pageCounter);
 
-  const animateElements = () => {
+  const animateSlide01 = () => {
     const viewportWidth = window.innerWidth;
 
     tileRefs.current.forEach((element, index) => {
@@ -39,7 +39,7 @@ export const Slide01 = () => {
     gsap.fromTo(
       tileRefs.current[0],
       { opacity: 1 },
-      { x: -190, opacity: 0, duration: 1, repeat: -1 }
+      { x: -190, opacity: 0, duration: 1 }
     );
   };
 
@@ -47,7 +47,7 @@ export const Slide01 = () => {
     () => {
       console.log("🦆 ~ Slide01 ~ pageCounter:", pageCounter);
       if (pageCounter === 1) {
-        animateElements();
+        animateSlide01();
       }
     },
     { dependencies: [pageCounter], scope: line, revertOnUpdate: true }
