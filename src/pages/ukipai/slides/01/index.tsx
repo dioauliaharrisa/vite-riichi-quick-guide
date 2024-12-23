@@ -15,6 +15,8 @@ export const Slide01 = () => {
   console.log("🦆 ~ Slide01 ~ pageCounter:", pageCounter);
   const prevPageCounter = useRef(pageCounter); // Track the previous pageCounter value
 
+  // const m2AcceptanceRefs = useRef<HTMLDivElement[]>([]);
+
   const tl = useRef(gsap.timeline({ paused: true }));
 
   // Initialize animations
@@ -69,7 +71,7 @@ export const Slide01 = () => {
 
     tl.current.set(".M2_acceptance", {
       display: "inline",
-      position: "absolute",
+      // position: "absolute",
     });
     tl.current.addLabel("page3");
   }, []);
