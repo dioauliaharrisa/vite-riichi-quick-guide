@@ -97,7 +97,7 @@ export const Slide03 = () => {
                   : "translate(0, 0)", // Apply final positions
               }}
             >
-              {createHand(line.content)}
+              {createHand({ hand: line.content })}
             </div>
           ))}
         </div>

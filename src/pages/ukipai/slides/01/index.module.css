@@ -16,36 +16,6 @@
   background-color: aqua;
 }
 
-.one {
-  animation: out 2s ease-in-out infinite;
-}
-
-.two,
-.three,
-.four,
-.five,
-.six {
-  animation: go_center 2s ease-in-out infinite;
-}
-
-@keyframes out {
-  0% {
-    transform: translate(0, 0);
-    visibility: visible;
-  }
-  100% {
-    transform: translate(-100vh, 0);
-    visibility: hidden;
-  }
-}
-
-@keyframes go_center {
-  0% {
-    transform: translate(0, 0);
-    /* visibility: visible; */
-  }
-  100% {
-    transform: translate(-20vh, 0);
-    /* visibility: hidden; */
-  }
+.two, .three, .four, .five,.six {
+  /* visibility: hidden; */
 }

@@ -44,10 +44,6 @@ export const Slide02 = () => {
         if (line && translations[index] !== undefined) {
           const translateX = translations[index];
           const translateY = -10 * index + 20; // Example dynamic Y offset
-          console.log(
-            "🦆 ~ lineRefs.current.forEach ~ translateY:",
-            translateY
-          );
 
           line.animate(
             [
