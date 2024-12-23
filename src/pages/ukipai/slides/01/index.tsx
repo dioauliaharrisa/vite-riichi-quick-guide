@@ -4,6 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import { usePageCounter } from "../../../../zustand";
 
 gsap.registerPlugin(useGSAP, MotionPathPlugin);
 
@@ -11,12 +12,13 @@ export const Slide01 = () => {
   const line = useRef(null);
   const tileRefs = useRef<HTMLDivElement[]>([]); // A single ref for all tiles
 
+  const pageCounter = usePageCounter((state) => state.pageCounter);
+
   const animateElements = () => {
     const viewportWidth = window.innerWidth;
 
     tileRefs.current.forEach((element, index) => {
       if (element) {
-        console.log("🦆 ~ tileRefs.current.forEach ~ index:", index);
         const rect = element.getBoundingClientRect();
 
         const targetX = viewportWidth - rect.x - viewportWidth - rect.width / 2;
@@ -43,9 +45,12 @@ export const Slide01 = () => {
 
   useGSAP(
     () => {
-      animateElements();
+      console.log("🦆 ~ Slide01 ~ pageCounter:", pageCounter);
+      if (pageCounter === 1) {
+        animateElements();
+      }
     },
-    { scope: line }
+    { dependencies: [pageCounter], scope: line, revertOnUpdate: true }
   );
 
   const createHandDiv = (hand: string[], className: string, index: number) => (
