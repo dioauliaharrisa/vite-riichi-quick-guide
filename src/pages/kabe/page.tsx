@@ -76,21 +76,23 @@ export default function Page() {
   }, [pageCounter]);
 
   const firstHand = useMemo(() => {
-    return createHand([
-      "M3",
-      "M3",
-      "M4",
-      "M5",
-      "M6",
-      "M6",
-      "M7",
-      "M8",
-      "Z7",
-      "Z7",
-      "M2",
-      "M3",
-      "S9",
-    ]);
+    return createHand({
+      hand: [
+        "M3",
+        "M3",
+        "M4",
+        "M5",
+        "M6",
+        "M6",
+        "M7",
+        "M8",
+        "Z7",
+        "Z7",
+        "M2",
+        "M3",
+        "S9",
+      ],
+    });
   }, []);
 
   return (
