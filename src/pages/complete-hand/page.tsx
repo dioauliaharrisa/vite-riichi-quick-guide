@@ -33,7 +33,7 @@ export default function Page() {
         </div>
       )}
       {pageCounter > 2 && (
-        <div className={styles.agarihai_1}>{{ hand: createHand(["P1"]) }}</div>
+        <div className={styles.agarihai_1}>{createHand({ hand: ["P1"] })}</div>
       )}
       {pageCounter > 2 && (
         <div className={styles.agarihai_2}>{createHand({ hand: ["P4"] })}</div>
