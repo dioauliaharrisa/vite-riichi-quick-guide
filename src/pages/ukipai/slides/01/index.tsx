@@ -45,7 +45,6 @@ export const Slide01 = () => {
 
   useGSAP(
     () => {
-      console.log("🦆 ~ Slide01 ~ pageCounter:", pageCounter);
       if (pageCounter === 1) {
         animateSlide01();
       }

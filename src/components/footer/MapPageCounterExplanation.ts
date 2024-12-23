@@ -18,4 +18,8 @@ export const MapPageCounterExplanation: PageCounterExplanation = {
     "Kabe is considered when choosing to defend because when 4 tiles of the same tile have already been discarded, exposing that no ryanmen that using that tile maybe be possible",
     "Note also in discard pond, you can pinpoint kabe while looking at your hand. In this case you can see that there is 8s kabe. 8s kabe information is so useful because you are the only one who knows this.",
   ],
+  ukipai: [
+    "In every haipai that you will get, you will usually encounter a lone, isolated tile. We call this Floaters or Ukipai. Take a look at this hand",
+    "Here we dissect all the ukipai that we have, for this hand there are a lot of ukipais.",
+  ],
 };
