@@ -9,7 +9,10 @@ gsap.registerPlugin(MotionPathPlugin);
 
 export const Slide01 = () => {
   const line = useRef(null);
-  const tileRefs = useRef<HTMLDivElement[]>([]); // A single ref for all tiles
+  const tileRefs = useRef<HTMLDivElement[]>([]);
+  const m2AcceptanceRefs = useRef<HTMLDivElement[]>([]);
+  const refM2Acceptance = useRef<HTMLDivElement>(null);
+  const refS7Acceptance = useRef<HTMLDivElement>(null);
 
   const pageCounter = usePageCounter((state) => state.pageCounter);
   console.log("🦆 ~ Slide01 ~ pageCounter:", pageCounter);
@@ -69,10 +72,70 @@ export const Slide01 = () => {
     });
     tl.current.addLabel("page2");
 
-    tl.current.set(".M2_acceptance", {
-      display: "inline",
-      // position: "absolute",
-    });
+    if (refM2Acceptance.current) {
+      tl.current.to(
+        refM2Acceptance.current,
+
+        {
+          display: "flex",
+          position: "absolute",
+          onComplete: () => {
+            // This will run after the animation completes
+            if (refM2Acceptance.current) {
+              const rectM2Acceptance =
+                refM2Acceptance.current.getBoundingClientRect();
+
+              tl.current.fromTo(
+                refM2Acceptance.current,
+                {},
+                {
+                  x: -rectM2Acceptance.x + 150,
+                  y: -180 + 1 * 60,
+                  display: "flex",
+                  position: "absolute",
+                },
+
+                "page3"
+              );
+            }
+          },
+        },
+        "page3"
+      );
+    }
+    if (refS7Acceptance.current) {
+      tl.current.to(
+        refS7Acceptance.current,
+
+        {
+          display: "flex",
+          position: "absolute",
+          onComplete: () => {
+            // This will run after the animation completes
+            if (refS7Acceptance.current) {
+              const rectS7Acceptance =
+                refS7Acceptance.current.getBoundingClientRect();
+
+              tl.current.fromTo(
+                refS7Acceptance.current,
+                {},
+                {
+                  x: -rectS7Acceptance.x + 150,
+                  y: -180 + 2 * 60,
+                  display: "flex",
+                  position: "absolute",
+                },
+
+                "page3"
+              );
+            }
+          },
+        },
+        "page3"
+      );
+      // const rectS7Acceptance = refS7Acceptance.current.getBoundingClientRect();
+    }
+
     tl.current.addLabel("page3");
   }, []);
 
@@ -92,7 +155,13 @@ export const Slide01 = () => {
       key={index}
       className={className}
       ref={(el) => {
-        if (el) tileRefs.current[index] = el;
+        if (el) {
+          if (index > 5) {
+            m2AcceptanceRefs.current[index] = el;
+          } else {
+            tileRefs.current[index] = el;
+          }
+        }
       }}
     >
       {createHand({ hand })}
@@ -112,10 +181,19 @@ export const Slide01 = () => {
         {createHandDiv(["Z3"], styles.tile, 3)}
         {createHandDiv(["P5"], styles.tile, 4)}
         {createHandDiv(["M9"], styles.tile, 5)}
-        {createHandDiv(["M1"], styles.M2_acceptance, 6)}
-        {createHandDiv(["M2"], styles.M2_acceptance, 7)}
-        {createHandDiv(["M3"], styles.M2_acceptance, 8)}
-        {createHandDiv(["M4"], styles.M2_acceptance, 9)}
+        <div className={styles.x} ref={refM2Acceptance}>
+          {createHandDiv(["M1"], styles.M2_acceptance, 6)}
+          {createHandDiv(["M2"], styles.M2_acceptance, 7)}
+          {createHandDiv(["M3"], styles.M2_acceptance, 8)}
+          {createHandDiv(["M4"], styles.M2_acceptance, 9)}
+        </div>
+        <div className={styles.x} ref={refS7Acceptance}>
+          {createHandDiv(["S5"], styles.M2_acceptance, 6)}
+          {createHandDiv(["S6"], styles.M2_acceptance, 7)}
+          {createHandDiv(["S7"], styles.M2_acceptance, 8)}
+          {createHandDiv(["S8"], styles.M2_acceptance, 9)}
+          {createHandDiv(["S9"], styles.M2_acceptance, 9)}
+        </div>
       </div>
     </div>
   );
