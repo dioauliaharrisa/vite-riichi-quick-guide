@@ -23,40 +23,24 @@ export const Slide01 = () => {
 
   const tl = useRef(gsap.timeline({ paused: true }));
 
+  const viewportWidth = window.innerWidth;
+
   const animateAcceptance = (
     ref: React.RefObject<HTMLDivElement>,
     index: number
   ) => {
     if (ref.current) {
-      console.log(ref.current?.getBoundingClientRect());
-      tl.current.to(
+      const rect = ref.current?.getBoundingClientRect();
+      console.log("🦆 ~ Slide01 ~ rect:", rect);
+      tl.current.fromTo(
         ref.current,
+        { x: -rect.x + 250, y: -180 + index * 60 },
         {
           display: "flex",
           position: "absolute",
-          onUpdate: () => {
-            console.log("Animating:", ref.current?.getBoundingClientRect());
-            const rect = ref.current?.getBoundingClientRect();
-            if (rect) {
-              tl.current.fromTo(
-                ref.current,
-                { opacity: 0, x: 300, y: -180 + index * 60 },
-                { opacity: 1, x: -rect.x + 150, y: -180 + index * 60 },
-                "<"
-              );
-            }
-          },
-          // onComplete: () => {
-          //   const rect = ref.current?.getBoundingClientRect();
-          //   if (rect) {
-          //     tl.current.fromTo(
-          //       ref.current,
-          //       { opacity: 0, x: 200, y: -180 + index * 60 },
-          //       { opacity: 1, x: -rect.x + 150, y: -180 + index * 60 },
-          //       "<"
-          //     );
-          //   }
-          // },
+          opacity: 1,
+          x: -viewportWidth + (viewportWidth + rect.x) + 150,
+          y: -180 + index * 60,
         },
         "<"
       );
@@ -65,8 +49,6 @@ export const Slide01 = () => {
 
   // Initialize animations
   useEffect(() => {
-    const viewportWidth = window.innerWidth;
-
     // Define the timeline and animation states
     tl.current.clear();
 
