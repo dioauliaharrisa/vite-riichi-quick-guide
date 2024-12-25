@@ -25,6 +25,35 @@ export const Slide01 = () => {
 
   const tl = useRef(gsap.timeline({ paused: true }));
 
+  const animateAcceptance = (ref, index) => {
+    if (ref.current) {
+      tl.current.to(
+        ref.current,
+        {
+          display: "flex",
+          position: "absolute",
+          onComplete: () => {
+            const rect = ref.current?.getBoundingClientRect();
+            if (rect) {
+              tl.current.fromTo(
+                ref.current,
+                {},
+                {
+                  x: -rect.x + 150,
+                  y: -180 + index * 60,
+                  display: "flex",
+                  position: "absolute",
+                },
+                "<"
+              );
+            }
+          },
+        },
+        "<"
+      );
+    }
+  };
+
   // Initialize animations
   useEffect(() => {
     const viewportWidth = window.innerWidth;
@@ -74,162 +103,11 @@ export const Slide01 = () => {
       }
     });
 
-    if (refM2Acceptance.current) {
-      tl.current.to(
-        refM2Acceptance.current,
-
-        {
-          display: "flex",
-          position: "absolute",
-          onComplete: () => {
-            // This will run after the animation completes
-            if (refM2Acceptance.current) {
-              const rectM2Acceptance =
-                refM2Acceptance.current.getBoundingClientRect();
-
-              tl.current.fromTo(
-                refM2Acceptance.current,
-                {},
-                {
-                  x: -rectM2Acceptance.x + 150,
-                  y: -180 + 1 * 60,
-                  display: "flex",
-                  position: "absolute",
-                },
-
-                "<"
-              );
-            }
-          },
-        },
-        "<"
-      );
-    }
-    if (refS7Acceptance.current) {
-      tl.current.to(
-        refS7Acceptance.current,
-
-        {
-          display: "flex",
-          position: "absolute",
-          onComplete: () => {
-            // This will run after the animation completes
-            if (refS7Acceptance.current) {
-              const rectS7Acceptance =
-                refS7Acceptance.current.getBoundingClientRect();
-
-              tl.current.fromTo(
-                refS7Acceptance.current,
-                {},
-                {
-                  x: -rectS7Acceptance.x + 150,
-                  y: -180 + 2 * 60,
-                  display: "flex",
-                  position: "absolute",
-                },
-
-                "<"
-              );
-            }
-          },
-        },
-        "<"
-      );
-      // const rectS7Acceptance = refS7Acceptance.current.getBoundingClientRect();
-    }
-    if (refZ3Acceptance.current) {
-      tl.current.to(
-        refZ3Acceptance.current,
-
-        {
-          display: "flex",
-          position: "absolute",
-          onComplete: () => {
-            // This will run after the animation completes
-            if (refZ3Acceptance.current) {
-              const rectZ3Acceptance =
-                refZ3Acceptance.current.getBoundingClientRect();
-
-              tl.current.fromTo(
-                refZ3Acceptance.current,
-                {},
-                {
-                  x: -rectZ3Acceptance.x + 150,
-                  y: -180 + 3 * 60,
-                  display: "flex",
-                  position: "absolute",
-                },
-
-                "<"
-              );
-            }
-          },
-        },
-        "<"
-      );
-      // const rectS7Acceptance = refS7Acceptance.current.getBoundingClientRect();
-    }
-    if (refP5Acceptance.current) {
-      tl.current.to(
-        refP5Acceptance.current,
-
-        {
-          display: "flex",
-          position: "absolute",
-          onComplete: () => {
-            // This will run after the animation completes
-            if (refP5Acceptance.current) {
-              const rectP5Acceptance =
-                refP5Acceptance.current.getBoundingClientRect();
-
-              tl.current.fromTo(
-                refP5Acceptance.current,
-                {},
-                {
-                  x: -rectP5Acceptance.x + 150,
-                  y: -180 + 4 * 60,
-                  display: "flex",
-                  position: "absolute",
-                },
-
-                "<"
-              );
-            }
-          },
-        },
-        "<"
-      );
-    }
-    if (refM9Acceptance.current) {
-      tl.current.to(
-        refM9Acceptance.current,
-
-        {
-          display: "flex",
-          position: "absolute",
-          onComplete: () => {
-            // This will run after the animation completes
-            if (refM9Acceptance.current) {
-              const rectM9Acceptance =
-                refM9Acceptance.current.getBoundingClientRect();
-
-              tl.current.fromTo(
-                refM9Acceptance.current,
-                {},
-                {
-                  x: -rectM9Acceptance.x + 150,
-                  y: -180 + 5 * 60,
-                  display: "flex",
-                  position: "absolute",
-                },
-                "<"
-              );
-            }
-          },
-        },
-        "<"
-      );
-    }
+    animateAcceptance(refM2Acceptance, 1);
+    animateAcceptance(refS7Acceptance, 2);
+    animateAcceptance(refZ3Acceptance, 3);
+    animateAcceptance(refP5Acceptance, 4);
+    animateAcceptance(refM9Acceptance, 5);
 
     tl.current.addLabel("page2");
   }, []);
