@@ -36,18 +36,27 @@ export const Slide01 = () => {
           position: "absolute",
           onUpdate: () => {
             console.log("Animating:", ref.current?.getBoundingClientRect());
-          },
-          onComplete: () => {
             const rect = ref.current?.getBoundingClientRect();
             if (rect) {
               tl.current.fromTo(
                 ref.current,
-                { opacity: 0, x: 200, y: -180 + index * 60 },
+                { opacity: 0, x: 300, y: -180 + index * 60 },
                 { opacity: 1, x: -rect.x + 150, y: -180 + index * 60 },
                 "<"
               );
             }
           },
+          // onComplete: () => {
+          //   const rect = ref.current?.getBoundingClientRect();
+          //   if (rect) {
+          //     tl.current.fromTo(
+          //       ref.current,
+          //       { opacity: 0, x: 200, y: -180 + index * 60 },
+          //       { opacity: 1, x: -rect.x + 150, y: -180 + index * 60 },
+          //       "<"
+          //     );
+          //   }
+          // },
         },
         "<"
       );
