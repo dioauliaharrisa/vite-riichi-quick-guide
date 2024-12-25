@@ -10,14 +10,13 @@ gsap.registerPlugin(MotionPathPlugin);
 export const Slide01 = () => {
   const line = useRef(null);
   const tileRefs = useRef<HTMLDivElement[]>([]);
-  const m2AcceptanceRefs = useRef<HTMLDivElement[]>([]);
   const refM2Acceptance = useRef<HTMLDivElement>(null);
   const refS7Acceptance = useRef<HTMLDivElement>(null);
   const refZ3Acceptance = useRef<HTMLDivElement>(null);
   const refP5Acceptance = useRef<HTMLDivElement>(null);
   const refM9Acceptance = useRef<HTMLDivElement>(null);
 
-  const refShaDrop = useRef<HTMLDivElement>(null);
+  // const refShaDrop = useRef<HTMLDivElement>(null);
 
   const pageCounter = usePageCounter((state) => state.pageCounter);
 
