@@ -13,10 +13,13 @@ export const Slide01 = () => {
   const m2AcceptanceRefs = useRef<HTMLDivElement[]>([]);
   const refM2Acceptance = useRef<HTMLDivElement>(null);
   const refS7Acceptance = useRef<HTMLDivElement>(null);
+  const refZ3Acceptance = useRef<HTMLDivElement>(null);
+  const refP5Acceptance = useRef<HTMLDivElement>(null);
+  const refM9Acceptance = useRef<HTMLDivElement>(null);
 
   const pageCounter = usePageCounter((state) => state.pageCounter);
-  console.log("🦆 ~ Slide01 ~ pageCounter:", pageCounter);
   const prevPageCounter = useRef(pageCounter); // Track the previous pageCounter value
+  console.log("🦆 ~ Slide01 ~ pageCounter:", prevPageCounter, pageCounter);
 
   // const m2AcceptanceRefs = useRef<HTMLDivElement[]>([]);
 
@@ -70,7 +73,6 @@ export const Slide01 = () => {
         );
       }
     });
-    tl.current.addLabel("page2");
 
     if (refM2Acceptance.current) {
       tl.current.to(
@@ -95,12 +97,12 @@ export const Slide01 = () => {
                   position: "absolute",
                 },
 
-                "page3"
+                "<"
               );
             }
           },
         },
-        "page3"
+        "<"
       );
     }
     if (refS7Acceptance.current) {
@@ -126,28 +128,114 @@ export const Slide01 = () => {
                   position: "absolute",
                 },
 
-                "page3"
+                "<"
               );
             }
           },
         },
-        "page3"
+        "<"
       );
       // const rectS7Acceptance = refS7Acceptance.current.getBoundingClientRect();
     }
+    if (refZ3Acceptance.current) {
+      tl.current.to(
+        refZ3Acceptance.current,
 
-    tl.current.addLabel("page3");
-  }, []);
+        {
+          display: "flex",
+          position: "absolute",
+          onComplete: () => {
+            // This will run after the animation completes
+            if (refZ3Acceptance.current) {
+              const rectZ3Acceptance =
+                refZ3Acceptance.current.getBoundingClientRect();
 
-  // Play or reverse the animation based on pageCounter
-  useEffect(() => {
-    if (pageCounter > prevPageCounter.current) {
-      tl.current.tweenTo(`page${pageCounter}`); // Play forward
-    } else if (pageCounter < prevPageCounter.current) {
-      tl.current.reverse(`page${pageCounter}`); // Reverse to the previous state
+              tl.current.fromTo(
+                refZ3Acceptance.current,
+                {},
+                {
+                  x: -rectZ3Acceptance.x + 150,
+                  y: -180 + 3 * 60,
+                  display: "flex",
+                  position: "absolute",
+                },
+
+                "<"
+              );
+            }
+          },
+        },
+        "<"
+      );
+      // const rectS7Acceptance = refS7Acceptance.current.getBoundingClientRect();
+    }
+    if (refP5Acceptance.current) {
+      tl.current.to(
+        refP5Acceptance.current,
+
+        {
+          display: "flex",
+          position: "absolute",
+          onComplete: () => {
+            // This will run after the animation completes
+            if (refP5Acceptance.current) {
+              const rectP5Acceptance =
+                refP5Acceptance.current.getBoundingClientRect();
+
+              tl.current.fromTo(
+                refP5Acceptance.current,
+                {},
+                {
+                  x: -rectP5Acceptance.x + 150,
+                  y: -180 + 4 * 60,
+                  display: "flex",
+                  position: "absolute",
+                },
+
+                "<"
+              );
+            }
+          },
+        },
+        "<"
+      );
+    }
+    if (refM9Acceptance.current) {
+      tl.current.to(
+        refM9Acceptance.current,
+
+        {
+          display: "flex",
+          position: "absolute",
+          onComplete: () => {
+            // This will run after the animation completes
+            if (refM9Acceptance.current) {
+              const rectM9Acceptance =
+                refM9Acceptance.current.getBoundingClientRect();
+
+              tl.current.fromTo(
+                refM9Acceptance.current,
+                {},
+                {
+                  x: -rectM9Acceptance.x + 150,
+                  y: -180 + 5 * 60,
+                  display: "flex",
+                  position: "absolute",
+                },
+                "<"
+              );
+            }
+          },
+        },
+        "<"
+      );
     }
 
-    prevPageCounter.current = pageCounter; // Update the previous counter
+    tl.current.addLabel("page2");
+  }, []);
+
+  useEffect(() => {
+    tl.current.tweenTo(`page${pageCounter}`);
   }, [pageCounter]);
 
   const createHandDiv = (hand: string[], className: string, index: number) => (
@@ -156,7 +244,7 @@ export const Slide01 = () => {
       className={className}
       ref={(el) => {
         if (el) {
-          if (index > 5) {
+          if (index > 5 && index < 10) {
             m2AcceptanceRefs.current[index] = el;
           } else {
             tileRefs.current[index] = el;
@@ -193,6 +281,21 @@ export const Slide01 = () => {
           {createHandDiv(["S7"], styles.M2_acceptance, 8)}
           {createHandDiv(["S8"], styles.M2_acceptance, 9)}
           {createHandDiv(["S9"], styles.M2_acceptance, 9)}
+        </div>
+        <div className={styles.x} ref={refZ3Acceptance}>
+          {createHandDiv(["Z3"], styles.M2_acceptance, 6)}
+        </div>
+        <div className={styles.x} ref={refP5Acceptance}>
+          {createHandDiv(["P3"], styles.M2_acceptance, 6)}
+          {createHandDiv(["P4"], styles.M2_acceptance, 6)}
+          {createHandDiv(["P5"], styles.M2_acceptance, 6)}
+          {createHandDiv(["P6"], styles.M2_acceptance, 6)}
+          {createHandDiv(["P7"], styles.M2_acceptance, 6)}
+        </div>
+        <div className={styles.x} ref={refM9Acceptance}>
+          {createHandDiv(["M7"], styles.M2_acceptance, 6)}
+          {createHandDiv(["M8"], styles.M2_acceptance, 6)}
+          {createHandDiv(["M9"], styles.M2_acceptance, 6)}
         </div>
       </div>
     </div>

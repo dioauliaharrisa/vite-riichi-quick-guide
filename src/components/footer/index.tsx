@@ -19,6 +19,9 @@ export const Footer = () => {
       <Box className={styles.box}>
         {MapPageCounterExplanation[_pathname]?.[pageCounter]}
       </Box>
+      <div className={styles.page_counter}>{`${pageCounter + 1} / ${
+        MapPageCounterExplanation[_pathname].length
+      }`}</div>
       <div className={styles.wrapper_buttons}>
         <Button onClick={decreasePageCounter}>Previous</Button>
         <Button onClick={increasePageCounter}>Next</Button>
