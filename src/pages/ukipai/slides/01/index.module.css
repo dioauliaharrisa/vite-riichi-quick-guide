@@ -15,14 +15,6 @@
   width: 100%;
 }
 
-.two,
-.three,
-.four,
-.five,
-.six {
-  /* visibility: hidden; */
-}
-
-.x {
+.acceptance {
   display: none;
 }

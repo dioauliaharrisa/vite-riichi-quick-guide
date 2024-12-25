@@ -14,17 +14,26 @@ export const Footer = () => {
   const _pathname: keyof typeof MapPageCounterExplanation =
     location.pathname.split("/")[1];
 
+  const totalSlide = MapPageCounterExplanation[_pathname].length;
+
   return (
     <div className={styles.wrapper}>
       <Box className={styles.box}>
         {MapPageCounterExplanation[_pathname]?.[pageCounter]}
       </Box>
-      <div className={styles.page_counter}>{`${pageCounter + 1} / ${
-        MapPageCounterExplanation[_pathname].length
-      }`}</div>
+      <div className={styles.page_counter}>{`${
+        pageCounter + 1
+      } / ${totalSlide}`}</div>
       <div className={styles.wrapper_buttons}>
-        <Button onClick={decreasePageCounter}>Previous</Button>
-        <Button onClick={increasePageCounter}>Next</Button>
+        <Button disabled={pageCounter === 0} onClick={decreasePageCounter}>
+          Previous
+        </Button>
+        <Button
+          disabled={pageCounter === totalSlide - 1}
+          onClick={increasePageCounter}
+        >
+          Next
+        </Button>
         <Button onClick={increasePageCounter}>Next Chapter</Button>
       </div>
     </div>

@@ -21,6 +21,9 @@
 }
 
 .wrapper_buttons > button {
+  &:disabled {
+    background-color: red;
+  }
   background-color: #214738;
   width: 30%;
   font-size: x-small;

@@ -18,32 +18,32 @@ export const Slide01 = () => {
   const refM9Acceptance = useRef<HTMLDivElement>(null);
 
   const pageCounter = usePageCounter((state) => state.pageCounter);
-  const prevPageCounter = useRef(pageCounter); // Track the previous pageCounter value
-  console.log("🦆 ~ Slide01 ~ pageCounter:", prevPageCounter, pageCounter);
 
   // const m2AcceptanceRefs = useRef<HTMLDivElement[]>([]);
 
   const tl = useRef(gsap.timeline({ paused: true }));
 
-  const animateAcceptance = (ref, index) => {
+  const animateAcceptance = (
+    ref: React.RefObject<HTMLDivElement>,
+    index: number
+  ) => {
     if (ref.current) {
+      console.log(ref.current?.getBoundingClientRect());
       tl.current.to(
         ref.current,
         {
           display: "flex",
           position: "absolute",
+          onUpdate: () => {
+            console.log("Animating:", ref.current?.getBoundingClientRect());
+          },
           onComplete: () => {
             const rect = ref.current?.getBoundingClientRect();
             if (rect) {
               tl.current.fromTo(
                 ref.current,
-                {},
-                {
-                  x: -rect.x + 150,
-                  y: -180 + index * 60,
-                  display: "flex",
-                  position: "absolute",
-                },
+                { opacity: 0, x: 200, y: -180 + index * 60 },
+                { opacity: 1, x: -rect.x + 150, y: -180 + index * 60 },
                 "<"
               );
             }
@@ -147,30 +147,30 @@ export const Slide01 = () => {
         {createHandDiv(["Z3"], styles.tile, 3)}
         {createHandDiv(["P5"], styles.tile, 4)}
         {createHandDiv(["M9"], styles.tile, 5)}
-        <div className={styles.x} ref={refM2Acceptance}>
+        <div className={styles.acceptance} ref={refM2Acceptance}>
           {createHandDiv(["M1"], styles.M2_acceptance, 6)}
           {createHandDiv(["M2"], styles.M2_acceptance, 7)}
           {createHandDiv(["M3"], styles.M2_acceptance, 8)}
           {createHandDiv(["M4"], styles.M2_acceptance, 9)}
         </div>
-        <div className={styles.x} ref={refS7Acceptance}>
+        <div className={styles.acceptance} ref={refS7Acceptance}>
           {createHandDiv(["S5"], styles.M2_acceptance, 6)}
           {createHandDiv(["S6"], styles.M2_acceptance, 7)}
           {createHandDiv(["S7"], styles.M2_acceptance, 8)}
           {createHandDiv(["S8"], styles.M2_acceptance, 9)}
           {createHandDiv(["S9"], styles.M2_acceptance, 9)}
         </div>
-        <div className={styles.x} ref={refZ3Acceptance}>
+        <div className={styles.acceptance} ref={refZ3Acceptance}>
           {createHandDiv(["Z3"], styles.M2_acceptance, 6)}
         </div>
-        <div className={styles.x} ref={refP5Acceptance}>
+        <div className={styles.acceptance} ref={refP5Acceptance}>
           {createHandDiv(["P3"], styles.M2_acceptance, 6)}
           {createHandDiv(["P4"], styles.M2_acceptance, 6)}
           {createHandDiv(["P5"], styles.M2_acceptance, 6)}
           {createHandDiv(["P6"], styles.M2_acceptance, 6)}
           {createHandDiv(["P7"], styles.M2_acceptance, 6)}
         </div>
-        <div className={styles.x} ref={refM9Acceptance}>
+        <div className={styles.acceptance} ref={refM9Acceptance}>
           {createHandDiv(["M7"], styles.M2_acceptance, 6)}
           {createHandDiv(["M8"], styles.M2_acceptance, 6)}
           {createHandDiv(["M9"], styles.M2_acceptance, 6)}
