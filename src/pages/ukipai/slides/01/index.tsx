@@ -17,6 +17,8 @@ export const Slide01 = () => {
   const refP5Acceptance = useRef<HTMLDivElement>(null);
   const refM9Acceptance = useRef<HTMLDivElement>(null);
 
+  const refShaDrop = useRef<HTMLDivElement>(null);
+
   const pageCounter = usePageCounter((state) => state.pageCounter);
 
   // const m2AcceptanceRefs = useRef<HTMLDivElement[]>([]);
@@ -38,8 +40,7 @@ export const Slide01 = () => {
         {
           display: "flex",
           position: "absolute",
-          opacity: 1,
-          x: -viewportWidth + (viewportWidth + rect.x) + 150,
+          x: -viewportWidth + viewportWidth - rect.x,
           y: -180 + index * 60,
         },
         "<"
@@ -47,7 +48,6 @@ export const Slide01 = () => {
     }
   };
 
-  // Initialize animations
   useEffect(() => {
     // Define the timeline and animation states
     tl.current.clear();
@@ -99,9 +99,15 @@ export const Slide01 = () => {
     animateAcceptance(refZ3Acceptance, 3);
     animateAcceptance(refP5Acceptance, 4);
     animateAcceptance(refM9Acceptance, 5);
-
     tl.current.addLabel("page2");
-  }, []);
+
+    tl.current.fromTo(
+      tileRefs.current[0],
+      { opacity: 0, x: -190, y: 0 },
+      { x: 0, y: 0, opacity: 1, duration: 1, immediateRender: false }
+    );
+    tl.current.addLabel("page3");
+  }, [viewportWidth]);
 
   useEffect(() => {
     tl.current.tweenTo(`page${pageCounter}`);
@@ -113,11 +119,7 @@ export const Slide01 = () => {
       className={className}
       ref={(el) => {
         if (el) {
-          if (index > 5 && index < 10) {
-            m2AcceptanceRefs.current[index] = el;
-          } else {
-            tileRefs.current[index] = el;
-          }
+          tileRefs.current[index] = el;
         }
       }}
     >

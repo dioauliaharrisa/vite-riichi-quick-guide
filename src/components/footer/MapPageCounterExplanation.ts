@@ -22,5 +22,6 @@ export const MapPageCounterExplanation: PageCounterExplanation = {
     "In every haipai that you will get, you will usually encounter a lone, isolated tile. We call this Floaters or Ukipai. Take a look at this hand",
     "Here we dissect all the ukipai that we have, for this hand there are a lot of ukipais. In standard efficiency we need to discard the ukipai with least amount of tile to create a block with.",
     "Based on each of these ukipai acceptance, in order to finish our hand we need to discard the tile that accept the least tiles to form a block. Therefore, sha should be discarded based on standard efficiency.",
+    "Repeat the process until you have 5 blocks.",
   ],
 };
