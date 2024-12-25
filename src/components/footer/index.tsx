@@ -14,7 +14,7 @@ export const Footer = () => {
   const _pathname: keyof typeof MapPageCounterExplanation =
     location.pathname.split("/")[1];
 
-  const totalSlide = MapPageCounterExplanation[_pathname].length || 0;
+  const totalSlide: number = MapPageCounterExplanation[_pathname]?.length || 0;
 
   return (
     <div className={styles.wrapper}>
