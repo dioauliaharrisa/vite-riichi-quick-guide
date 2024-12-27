@@ -34,13 +34,14 @@ export const HeadlessIishanten = () => {
         { display: "none", x: 0, y: 0 },
         { display: "flex", x: 0, y: 45 },
         "<"
-      ) 
+      )
       .to(".discard2", { y: -25, opacity: 0 })
       .to(".discard3", { y: -25, opacity: 0 }, "<")
       .to(".right_part2", { x: -22 })
       .to(".right_part3", { x: -22 }, "<");
   }, []);
 
+  console.log("🦆 ~6 6666");
   useEffect(() => {
     if (pageCounter === 0) {
       timelinePage1.current.pause(0).progress(0); // Reset page1 animation
