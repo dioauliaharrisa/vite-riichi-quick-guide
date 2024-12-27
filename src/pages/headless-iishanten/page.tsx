@@ -41,7 +41,7 @@ export const HeadlessIishanten = () => {
       .to(".right_part3", { x: -22 }, "<");
   }, []);
 
-  console.log("🦆 ~6 6666");
+  console.log("🦆 ~6 6666 ");  
   useEffect(() => {
     if (pageCounter === 0) {
       timelinePage1.current.pause(0).progress(0); // Reset page1 animation
