@@ -34,7 +34,7 @@ export const HeadlessIishanten = () => {
         { display: "none", x: 0, y: 0 },
         { display: "flex", x: 0, y: 45 },
         "<"
-      )
+      ) 
       .to(".discard2", { y: -25, opacity: 0 })
       .to(".discard3", { y: -25, opacity: 0 }, "<")
       .to(".right_part2", { x: -22 })
