@@ -59,6 +59,9 @@ export const Header = () => {
           <NavLink to="/ukipai" onClick={handleClickDrawer}>
             <Text>Ukipai</Text>
           </NavLink>
+          <NavLink to="/headless-iishanten" onClick={handleClickDrawer}>
+            <Text>Headless Iishanten</Text>
+          </NavLink>
         </div>
       </Drawer>
       <div className={styles.z1}></div>

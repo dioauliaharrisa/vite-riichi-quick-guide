@@ -12,7 +12,7 @@ export const Wrapper3dTiles: React.FC<Wrapper3dTilesProps> = ({
 }) => {
   if (orientation === "horizontal") {
     return (
-      <div className={styles.wrapper}>
+      <div className={styles.wrapper_3d}>
         <div className={styles.h_black} />
         <div className={styles.h_shadow} />
         <div className={styles.h_tile}>{children}</div>
@@ -20,7 +20,7 @@ export const Wrapper3dTiles: React.FC<Wrapper3dTilesProps> = ({
     );
   }
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper_3d}>
       <div className={styles.black} />
       <div className={styles.shadow} />
       <div className={styles.tile}>{children}</div>

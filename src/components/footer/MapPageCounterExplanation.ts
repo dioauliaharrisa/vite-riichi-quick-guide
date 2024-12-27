@@ -24,4 +24,8 @@ export const MapPageCounterExplanation: PageCounterExplanation = {
     "Based on each of these ukipai acceptance, in order to finish our hand we need to discard the tile that accept the least tiles to form a block. Therefore, sha should be discarded based on standard efficiency.",
     "Repeat the process until you have 5 blocks.",
   ],
+  "headless-iishanten": [
+    "Headless iishanten is one of iishanten type that has the widest acceptance",
+    "Compare these hand but",
+  ],
 };
