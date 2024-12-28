@@ -27,6 +27,6 @@ export const MapPageCounterExplanation: PageCounterExplanation = {
   "headless-iishanten": [
     "Headless iishanten is one of iishanten type that has the widest acceptance",
     "Compare these hand with 2 different decisions, by taking headless iishanten approach we will get an iishanten that has 20 ukeire to get us to tenpai instead of 13 ukeire by going kanchan-ryanmen iishanten",
-    "But in the situation where we need to secure yaku or points, we need make count of the possibility of pinfu/sanshoku doujun and going headless is too costly (need review)",
+    "But in the situation where we need to secure yaku or points, we need make count of the possibility of pinfu/sanshoku doujun and going headless is too costly (need review) (probably need better examples)",
   ],
 };

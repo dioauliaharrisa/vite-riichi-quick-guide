@@ -58,49 +58,28 @@ export const HeadlessIishanten = () => {
       );
 
     timelinePage2.current
-      .set(".acceptance2", { display: "none" })
-      .set(".acceptance3", { display: "none" })
-      .fromTo(".hand1", { display: "flex" }, { display: "none" })
-      .fromTo(
-        ".hand2",
-        { display: "none", x: 0, y: 0 },
-        { display: "flex", flexDirection: "column", x: 0, y: -65 }
-      )
-      .fromTo(
-        ".hand3",
-        { display: "none", x: 0, y: 0 },
-        { display: "flex", flexDirection: "column", x: 0, y: 65 },
-        "<"
-      )
+      .set(".hand1", { display: "none" })
+      .set(".hand2", { display: "flex", flexDirection: "column", x: 0, y: -65 })
       .to(".row", { display: "flex" }, "<")
-      .to(".discard2", { y: -25, opacity: 0 })
-      .to(".discard3", { y: -25, opacity: 0 }, "<")
-      .to(".right_part2", { x: -25 })
-      .to(".right_part3", { x: -25 }, "<")
+      .set(".hand3", { display: "none" })
       .fromTo(
         ".acceptance2",
-        { display: "none", opacity: 0, x: 0, y: 0 },
-        { display: "flex", opacity: 1, x: 0, y: 25 }
-      )
-      .fromTo(
-        ".acceptance3",
-        { display: "none", opacity: 0, x: 0, y: 0 },
         { display: "flex", opacity: 1, x: 0, y: 25 },
+        { display: "none", opacity: 0, y: 0 },
         "<"
       );
   }, []);
 
   useEffect(() => {
-    if (pageCounter === 0) {
-      timelinePage1.current.pause(0).progress(0); // Reset page1 animation
-      timelinePage0.current.restart(); // Restart page0 animation
-    } else if (pageCounter === 1) {
-      timelinePage0.current.pause(0).progress(0); // Reset page0 animation
-      timelinePage1.current.restart(); // Restart page1 animation
-    } else if (pageCounter === 2) {
-      timelinePage0.current.pause(0).progress(0); // Reset page0 animation
-      timelinePage1.current.restart(); // Restart page1 animation
-    }
+    const timelines = [timelinePage0, timelinePage1, timelinePage2];
+
+    timelines.forEach((timeline, index) => {
+      if (pageCounter === index) {
+        timeline.current.restart(); // Restart the active timeline
+      } else {
+        timeline.current.pause(0).progress(0); // Reset inactive timelines
+      }
+    });
   }, [pageCounter, timelinePage0, timelinePage1]);
 
   const styleAcceptanceBox = {
