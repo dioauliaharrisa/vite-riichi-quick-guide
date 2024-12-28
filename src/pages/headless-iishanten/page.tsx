@@ -28,8 +28,8 @@ export const HeadlessIishanten = () => {
 
     // Timeline for page 1
     timelinePage1.current
-      .set(".acceptance2", { display: "none" })
-      .set(".acceptance3", { display: "none" })
+      .set(".acceptance2", { visibility: "hidden" })
+      .set(".acceptance3", { visibility: "hidden" })
       .fromTo(".hand1", { display: "flex" }, { display: "none" })
       .fromTo(
         ".hand2",
@@ -49,13 +49,13 @@ export const HeadlessIishanten = () => {
       .to(".right_part3", { x: -25 }, "<")
       .fromTo(
         ".acceptance2",
-        { display: "none", opacity: 0, x: 0, y: 0 },
-        { display: "flex", opacity: 1, x: 0, y: 25 }
+        { visibility: "hidden", opacity: 0, x: 0, y: 0 },
+        { visibility: "visible", opacity: 1, x: 0, y: 25 }
       )
       .fromTo(
         ".acceptance3",
-        { display: "none", opacity: 0, x: 0, y: 0 },
-        { display: "flex", opacity: 1, x: 0, y: 25 },
+        { visibility: "visible", opacity: 0, x: 0, y: 0 },
+        { visibility: "visible", opacity: 1, x: 0, y: 25 },
         "<"
       );
 
