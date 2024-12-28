@@ -14,6 +14,7 @@ export const HeadlessIishanten = () => {
   const timelinePage0 = useRef(gsap.timeline({ paused: true }));
   const timelinePage1 = useRef(gsap.timeline({ paused: true }));
   const timelinePage2 = useRef(gsap.timeline({ paused: true }));
+  const timelinePage3 = useRef(gsap.timeline({ paused: true }));
 
   useGSAP(() => {
     // Timeline for page 0
@@ -21,6 +22,7 @@ export const HeadlessIishanten = () => {
       .set(".hand1", { display: "flex" })
       .set(".hand2", { display: "none" })
       .set(".hand3", { display: "none" })
+      .set(".hand4", { display: "none" })
       .fromTo(".discard1", { y: 0, opacity: 1 }, { y: -20, opacity: 0 })
       .to(".right_part1", { x: -25 });
 
@@ -68,10 +70,33 @@ export const HeadlessIishanten = () => {
         { display: "none", opacity: 0, y: 0 },
         "<"
       );
+
+    timelinePage3.current
+      .set(".hand1", { display: "none" })
+      .set(".hand2", { display: "none" })
+      .set(".hand3", { display: "none" })
+      // try to delete one of these, might be redundant
+      .set(".acceptance2", { display: "none" })
+      .set(".acceptance3", { display: "none" })
+      .set(".acceptance4", { display: "none" })
+      .set(".hand4", { display: "flex", flexDirection: "column" })
+      .set(".row", { display: "flex" }, "<")
+      .fromTo(".discard4", { y: 0, opacity: 1 }, { y: -20, opacity: 0 })
+      .to(".right_part4", { x: -25 })
+      .fromTo(
+        ".acceptance4",
+        { display: "none", opacity: 0, x: 0, y: 25 },
+        { display: "flex", opacity: 1, y: 0 }
+      );
   }, []);
 
   useEffect(() => {
-    const timelines = [timelinePage0, timelinePage1, timelinePage2];
+    const timelines = [
+      timelinePage0,
+      timelinePage1,
+      timelinePage2,
+      timelinePage3,
+    ];
 
     timelines.forEach((timeline, index) => {
       if (pageCounter === index) {
@@ -185,6 +210,38 @@ export const HeadlessIishanten = () => {
               gradient={{ from: "blue", to: "cyan", deg: 90 }}
             >
               20 Ukeire
+            </Text>
+          </div>
+        </div>
+        <div className="hand4">
+          <div className="row">
+            <div className="left_part4">
+              {createHand({
+                hand: ["S2", "S3", "S4", "M7", "M8", "M9"],
+              })}
+            </div>
+            <div className="discard4">
+              {createHand({
+                hand: ["M9"],
+              })}
+            </div>
+            <div className="right_part4">
+              {createHand({
+                hand: ["P7", "P8", "S7", "S7", "S7", "M2", "M3"],
+              })}
+            </div>
+          </div>
+          <div className="acceptance4" style={styleAcceptanceBox}>
+            {createHand({
+              hand: ["M1", "M2", "M3", "M4", "P6", "P7", "P8", "P9"],
+            })}
+            <Text
+              size="xl"
+              fw={900}
+              variant="gradient"
+              gradient={{ from: "blue", to: "cyan", deg: 90 }}
+            >
+              28 Ukeire
             </Text>
           </div>
         </div>

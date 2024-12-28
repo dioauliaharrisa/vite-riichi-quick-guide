@@ -28,5 +28,6 @@ export const MapPageCounterExplanation: PageCounterExplanation = {
     "Headless iishanten is one of iishanten type that has the widest acceptance",
     "Compare these hand with 2 different decisions, by taking headless iishanten approach we will get an iishanten that has 20 ukeire to get us to tenpai instead of 13 ukeire by going kanchan-ryanmen iishanten",
     "But in the situation where we need to secure yaku or points, we need make count of the possibility of pinfu/sanshoku doujun and going headless is too costly (need review) (probably need better examples)",
+    "In a hand where we can choose to get headless iishanten, the resultant ukeire is much greater when we have an ankou. It's only really happen when you have 2 ryanmens. This subtype of iishanten offers way more ukeires because you can drop one tile of your ankou as a pair and keeping good wait tenpai chance",
   ],
 };
